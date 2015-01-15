@@ -1,3 +1,7 @@
+<?php
+  include_once 'calendor.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
