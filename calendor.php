@@ -6,9 +6,12 @@
   // 月の最終日
   $lastDay = date("t", $timeStamp);
 
+  // 先月、翌月のリンク
+  $prev = date("Y-m", mktime(0, 0, 0, date("m", $timeStamp) - 1, 1, date("Y", $timeStamp)));
+  $next = date("Y-m", mktime(0, 0, 0, date("m", $timeStamp) + 1, 1, date("Y", $timeStamp)));
+
   // １日の曜日
   $weekDay = date("w", mktime(0, 0, 0, date("m", $timeStamp), 1, date("Y", $timeStamp)));
-  echo $timeStamp;
 
   $weeks = array();
   $week = '';

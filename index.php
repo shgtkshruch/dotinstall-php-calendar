@@ -13,9 +13,9 @@
   <table>
     <thead>
       <tr>
-        <th><a href="">&laquo;</a></th>
-        <th colspan="5">2013-07</th>
-        <th><a href="">&raquo;</a></th>
+      <th><a href="?ym=<?php echo $prev; ?>">&laquo;</a></th>
+      <th colspan="5"><?php echo date("Y", $timeStamp) . "-" . date("m", $timeStamp); ?></th>
+        <th><a href="?ym=<?php echo $next; ?>">&raquo;</a></th>
       </tr>
       <tr>
        <th>日</th>
