@@ -1,7 +1,13 @@
 <?php
-  // 今月のカレンダー
+  // timeStamp
 
-  $timeStamp = time();
+  $ym = isset($_GET['ym']) ? $_GET['ym'] : date("Y-m");
+
+  $timeStamp = strtotime($ym . "-01");
+
+  if ($timeStamp === false) {
+    $timeStamp = time();
+  }
 
   // 月の最終日
   $lastDay = date("t", $timeStamp);
