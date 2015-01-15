@@ -1,5 +1,16 @@
 <?php
   require_once('calendar.php');
+
+  // timeStamp
+  $ym = isset($_GET['ym']) ? $_GET['ym'] : date("Y-m");
+
+  $cal = new Calendar($ym);
+  $cal->create();
+
+  // HTMLをエスケープする関数
+  function h ($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +24,9 @@
   <table>
     <thead>
       <tr>
-      <th><a href="?ym=<?php echo h($prev); ?>">&laquo;</a></th>
-      <th colspan="5"><?php echo h(date("Y", $timeStamp) . "-" . date("m", $timeStamp)); ?></th>
-        <th><a href="?ym=<?php echo h($next); ?>">&raquo;</a></th>
+      <th><a href="?ym=<?php echo h($cal->prev()); ?>">&laquo;</a></th>
+      <th colspan="5"><?php echo h($cal->yearMonth()); ?></th>
+        <th><a href="?ym=<?php echo h($cal->next()); ?>">&raquo;</a></th>
       </tr>
       <tr>
        <th>日</th>
@@ -30,7 +41,7 @@
     <tbody>
 
       <?php
-        foreach ($weeks as $week) {
+  foreach ($cal->getWeeks() as $week) {
           echo $week;
         }
       ?>
