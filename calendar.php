@@ -1,4 +1,5 @@
 <?php
+
   // timeStamp
 
   $ym = isset($_GET['ym']) ? $_GET['ym'] : date("Y-m");
@@ -36,4 +37,9 @@
       $weeks[] = '<tr>' . $week . '</tr>';
       $week = '';
     }
+  }
+
+  // HTMLをエスケープする関数
+  function h ($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
   }

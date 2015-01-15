@@ -1,5 +1,5 @@
 <?php
-  include_once 'calendor.php';
+  require_once('calendar.php');
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +13,9 @@
   <table>
     <thead>
       <tr>
-      <th><a href="?ym=<?php echo $prev; ?>">&laquo;</a></th>
-      <th colspan="5"><?php echo date("Y", $timeStamp) . "-" . date("m", $timeStamp); ?></th>
-        <th><a href="?ym=<?php echo $next; ?>">&raquo;</a></th>
+      <th><a href="?ym=<?php echo h($prev); ?>">&laquo;</a></th>
+      <th colspan="5"><?php echo h(date("Y", $timeStamp) . "-" . date("m", $timeStamp)); ?></th>
+        <th><a href="?ym=<?php echo h($next); ?>">&raquo;</a></th>
       </tr>
       <tr>
        <th>日</th>
